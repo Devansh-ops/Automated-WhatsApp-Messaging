@@ -34,10 +34,10 @@ You can also join the discord server for any doubts :  https://discord.gg/DkcSP5
 For any queries, contact:%0a
 %0a
 Amit Priyadarshi%0a
-+91 77356 29090%0a
+%2B91 77356 29090%0a
 %0a
 Krish Jain%0a
-+91 9962153121%0a
+%2B91 9962153121%0a
 %0a
 Find us on:%0a
 %0a
