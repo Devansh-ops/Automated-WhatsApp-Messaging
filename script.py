@@ -1,3 +1,4 @@
+'''
 import subprocess
 import sys
  
@@ -6,60 +7,26 @@ def install(package):
  
 install("pyautogui")
 install("pandas")
+install("openpyxl")
+'''
  
 import pyautogui as pg
 import webbrowser as web
 import time
 import pandas as pd
- 
-message = '''Greetings from Sigma Xi,%0a
-%0a
-Thank you for registering for Sigma Xi’s Git Commit Merge. We are delighted to have you.%0a
-%0a
-Our speaker, Devansh Sehgal will guide you through the basics of GitHub which is a web-based version-control and collaboration platform for software developers. He will walk you through the A - Z of GitHub and also show how to host static websites through GitHub pages. %0a
-%0a
-Devansh will also guide you through open source contribution for the HacktoberFest.%0a
-%0a
-We look forward to your participation in the event. Please find the event details below:%0a
-%0a
-Date: 10th October 2021%0a
-Timing: 3:00 PM to 5:00 PM%0a
-Platform: MS Teams%0a
-Meeting Link: https://bit.ly/SigmaGitCommitMerge%0a
-%0a
-You can join the event through the given link. %0a
-%0a
-You can also join the discord server for any doubts :  https://discord.gg/DkcSP5xH %0a
-%0a
-For any queries, contact:%0a
-%0a
-Amit Priyadarshi%0a
-%2B91 77356 29090%0a
-%0a
-Krish Jain%0a
-%2B91 9962153121%0a
-%0a
-Find us on:%0a
-%0a
-LinkedIn: %0a
-www.linkedin.com/company/sigma-xi-vit/mycompany/%0a
-%0a
-Instagram: %0a
-www.instagram.com/sigmaxi.vit/%0a
-%0a
-Facebook: %0a
-www.facebook.com/SigmaXiVIT/%0a
-%0a
-Regards %0a
-Team Sigma Xi VIT
+import math
+
+message = '''Greetings%20from%20Sigma%20Xi%2C%0A%0AThank%20you%20for%20registering%20for%20Sigma%20Xi%E2%80%99s%20AI%20Conclave%2021.%20We%20are%20delighted%20to%20have%20you%20attend%20our%20event.%0AOur%20panel%20of%20speakers%20will%20walk%20you%20through%20all%20of%20the%20work%2C%20techniques%2C%20jargon%2C%20and%20tooling%20associated%20with%20Artificial%20Intelligence%20and%20Machine%20Learning.%20The%20event%20will%20cover%20everything%20you%20need%20to%20know%20about%20getting%20started%20with%20research%20in%20the%20field%20of%20AI%20and%20ML.%0A%0AEvent%20Details%3A%0ADate%3A%2013th%20November%202021%0ATime%3A%204%20p.m.%20-%206%20p.m.%0AMeeting%20Link%3A%20https%3A%2F%2Fbit.ly%2FSigmaAIConclave21%0A%0AFor%20any%20queries%20contact%3A%0AAnanya%20Pantvaidya%20%209967032670%0AShreyas%20Singh%20%209918644494%0A%0AFind%20us%20on%3A%0A%0ALinkedIn%3A%0Awww.linkedin.com%2Fcompany%2Fsigma-xi-vit%2Fmycompany%2F%0AInstagram%3A%0Awww.instagram.com%2Fsigmaxi.vit%2F%0AFacebook%3A%0Awww.facebook.com%2FSigmaXiVIT%2F%0A%0ARegards%0ATeam%20Sigma%20Xi%20VIT
 '''
  
-workbook = pd.read_excel('test.xlsx')
+workbook = pd.read_excel('Test_2.xlsx')
  
 data_dict = workbook.to_dict('list')
 numbers = data_dict['Number']
 first = True
 for num in numbers:
+    if (math.isnan(num)):
+        continue
     print("Sending message to", int(num))
     time.sleep(4)
     web.open("https://web.whatsapp.com/send?phone="+f"91{int(num)}+"+"&text="+message)
@@ -67,7 +34,7 @@ for num in numbers:
         time.sleep(12)
         first=False
     width,height = pg.size()
-    time.sleep(10)
+    time.sleep(8)
     pg.click(width/2,height/2)
     pg.press('enter')
     time.sleep(8)
