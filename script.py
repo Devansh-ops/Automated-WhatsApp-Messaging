@@ -9,16 +9,16 @@ install("pyautogui")
 install("pandas")
 install("openpyxl")
 '''
- 
+
 import pyautogui as pg
 import webbrowser as web
 import time
 import pandas as pd
 import math
 
-message = '''Greetings%20from%20Sigma%20Xi%2C%0A%0AThank%20you%20for%20registering%20for%20Sigma%20Xi%E2%80%99s%20%3Chover.js%3E.%20We%20are%20delighted%20to%20have%20you%20attend%20our%20event.%0A%0AOur%20speaker%2C%20Madabhushi%20Priya%20Saaketh%20will%20guide%20you%20through%20the%20basics%20of%20Frontend%20Web%20development%2C%20covering%20the%20major%20scripting%20languages%20such%20as%20HTML%2C%20CSS%2C%20Javascript%2C%20jQuery%20and%20AJAX%2C%20that%20power%20the%20internet%20wave.%20%0AHe%20will%20guide%20you%20through%20the%20process%20of%20styling%20web%20apps%2C%20explain%20how%20to%20work%20on%20open-source%20projects%20and%20follow%20modern%20frontend%20practices.%0A%0AEvent%20details%3A%20%0A%0ADate%3A%2019th%20November%202021%20%0ATime%3A%206%3A00%20pm%20to%207%3A30%20pm%20%0APlatform%3A%20Microsoft%20Teams%20%0AMeeting%20Link%3A%20https%3A%2F%2Fbit.ly%2FHover_js%0A%0AFor%20any%20queries%20contact%3A%0A%0AMaster%20Muskan%0A%2B91%2073780%2099975%0AKinit%20Sai%20%0A%2B91%2095909%2011533%0A%0AFind%20us%20on%3A%20%0A%0ALinkedIn%3A%20%0Alinkedin.com%2Fcompany%2Fsigma-xi-vit%2Fmycompany%2F%20%0A%0AInstagram%3A%20%0Ainstagram.com%2Fsigmaxi.vit%2F%20%0A%0AFacebook%3A%20%0Afacebook.com%2FSigmaXiVIT%2F%20%0A%0ARegards%20%0ATeam%20Sigma%20Xi%20VIT'''
+message = '''Greetings%20from%20Sigma%20Xi%2C%0A%0AThank%20you%20for%20signing%20up%20for%20the%20Sigma%20Xi%20VIT%27s%20Xientia.%20%0A%0AOur%20panel%20of%20speakers%20will%20lead%20you%20through%20all%20of%20the%20pollution%20control%20tactics%2C%20including%20attempting%20to%20manage%20a%20pollutant%20after%20it%20has%20been%20discharged%20in%20order%20to%20lessen%20its%20influence%20on%20the%20environment%2C%20as%20well%20as%20pollution%20management%20for%20a%20sustainable%20environment.%20We%20hope%20to%20see%20you%20at%20Xientia%21%0A%0AFor%20any%20queries%20contact%3A%0ASabrina%20Manickam%2C%207459818283%0ADevansh%20Sehgal%2C%2091046%2084900%0A%0AEvent%20Details%3A%0ADate%3A%2027th%20November%202021%0ATiming%3A%2012%20noon%20-2%20pm%0AMeeting%20Link%3A%20https%3A%2F%2Fbit.ly%2FXientia_SigmaXI%0A%0AFind%20us%20on%3A%0ALinkedIn%3A%0Awww.linkedin.com%2Fcompany%2Fsigma-xi-vit%2Fmycompany%2F%0A%0AInstagram%3A%0Awww.instagram.com%2Fsigmaxi.vit%2F%0A%0AFacebook%3A%0Awww.facebook.com%2FSigmaXiVIT%2F%0A%0ARegards%0ATeam%20Sigma%20Xi%20VIT'''
  
-workbook = pd.read_excel('hover.xlsx')
+workbook = pd.read_excel('Xientia.xlsx')
  
 data_dict = workbook.to_dict('list')
 numbers = data_dict['Number']
