@@ -2,3 +2,6 @@ envBot
 data/*
 !data/temp
 Test.xlsx
+error.log
+screenshots
+test_input.txt
