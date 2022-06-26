@@ -1,0 +1,4 @@
+envBot
+data/*
+!data/temp
+Test.xlsx

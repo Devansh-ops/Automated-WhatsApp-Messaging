@@ -1,40 +1,71 @@
-'''
-import subprocess
-import sys
- 
-def install(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
- 
-install("pyautogui")
-install("pandas")
-install("openpyxl")
-'''
-
-import pyautogui as pg
-import webbrowser as web
-import time
+from xmlrpc.client import Boolean
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import ElementNotVisibleException
+from webdriver_manager.chrome import ChromeDriverManager
+from time import sleep
+from urllib.parse import quote
+import openpyxl
 import pandas as pd
-import math
+import atexit
 
-message = '''Greetings%20from%20Sigma%20Xi%2C%0A%0AThank%20you%20for%20signing%20up%20for%20the%20Sigma%20Xi%20VIT%27s%20Xientia.%20%0A%0AOur%20panel%20of%20speakers%20will%20lead%20you%20through%20all%20of%20the%20pollution%20control%20tactics%2C%20including%20attempting%20to%20manage%20a%20pollutant%20after%20it%20has%20been%20discharged%20in%20order%20to%20lessen%20its%20influence%20on%20the%20environment%2C%20as%20well%20as%20pollution%20management%20for%20a%20sustainable%20environment.%20We%20hope%20to%20see%20you%20at%20Xientia%21%0A%0AFor%20any%20queries%20contact%3A%0ASabrina%20Manickam%2C%207459818283%0ADevansh%20Sehgal%2C%2091046%2084900%0A%0AEvent%20Details%3A%0ADate%3A%2027th%20November%202021%0ATiming%3A%2012%20noon%20-2%20pm%0AMeeting%20Link%3A%20https%3A%2F%2Fbit.ly%2FXientia_SigmaXI%0A%0AFind%20us%20on%3A%0ALinkedIn%3A%0Awww.linkedin.com%2Fcompany%2Fsigma-xi-vit%2Fmycompany%2F%0A%0AInstagram%3A%0Awww.instagram.com%2Fsigmaxi.vit%2F%0A%0AFacebook%3A%0Awww.facebook.com%2FSigmaXiVIT%2F%0A%0ARegards%0ATeam%20Sigma%20Xi%20VIT'''
- 
-workbook = pd.read_excel('Xientia.xlsx')
- 
-data_dict = workbook.to_dict('list')
-numbers = data_dict['Number']
-first = True
-for num in numbers:
-    if (math.isnan(num)):
-        continue
-    print("Sending message to", int(num))
-    time.sleep(4)
-    web.open("https://web.whatsapp.com/send?phone="+f"91{int(num)}+"+"&text="+message)
-    if first:
-        time.sleep(12)
-        first=False
-    width,height = pg.size()
-    time.sleep(8)
-    pg.click(width/2,height/2)
-    pg.press('enter')
-    time.sleep(8)
-    pg.hotkey('ctrl', 'w')
+#PATH_TO_BRAVE_BROWSER = "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"
+class WhatsAppBot:
+    def __init__(self):
+        options = webdriver.ChromeOptions()
+        #options.binary_location = PATH_TO_BRAVE_BROWSER
+        options.add_argument("--no-sandbox")
+        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+
+        # fluent wait
+        self.wait = WebDriverWait(self.driver, timeout=60, poll_frequency=1, ignored_exceptions=[ElementNotVisibleException])
+        # closing
+        atexit.register(self.__close)
+        
+    # function to correctly format the number
+    # default is indian
+    def format_number(self, phone_number):
+        phone_number = phone_number.replace(" ", "").replace("+", "").strip()
+        if len(phone_number) == 10:
+            phone_number = "91{}".format(phone_number)
+        return phone_number
+        
+    # send message to number
+    def sendMessage(self, number : str, message : str, delayAfterMessage : int = 3):
+        message = quote(message)
+        number = self.format_number(number)
+        url = "https://web.whatsapp.com/send?phone=" + number + "&text=" + message
+        self.driver.get(url)
+        messageBox = self.wait.until(EC.presence_of_element_located((By.XPATH, '//div[@title="Type a message"]')))
+        messageBox.send_keys(Keys.RETURN)
+        sleep(delayAfterMessage)
+    
+    def sendBulkMessage(self, df : pd.DataFrame, message : str = "Hello from WhatsApp Bot!", column = 1, delayAfterMessage : int = 1):
+        numbers = df.iloc[:, column].tolist()
+        
+        for i in range(len(numbers)):
+            self.sendMessage(numbers[i], message, delayAfterMessage)
+        
+        
+        
+    def __close(self):
+        self.driver.quit()
+        
+if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("file", help="Path to Excel file containing numbers to send message to")
+    parser.add_argument("-c", "--column", help="Column name or number where numbers are located", default=1)
+    parser.add_argument("message", nargs='?', help="String or Text file containing message to send", default="Hello from WhatsApp Bot!")
+    parser.add_argument("-d", "--delay", help="Time (in seconds) to wait after sending the message. Default = 3", default=3)
+    args = parser.parse_args()
+    
+    bot = WhatsAppBot()
+    
+    df = pd.read_excel(args.file, dtype=str)
+    
+    bot.sendBulkMessage(df, args.message, args.column, args.delay)
