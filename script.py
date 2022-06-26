@@ -40,11 +40,11 @@ class WhatsAppBot:
         number = self.format_number(number)
         url = "https://web.whatsapp.com/send?phone=" + number + "&text=" + message
         self.driver.get(url)
-        messageBox = self.wait.until(EC.presence_of_element_located((By.XPATH, '//div[@title="Type a message"]')))
+        messageBox = self.wait.until(EC.element_to_be_clickable((By.XPATH, '//div[@title="Type a message"]')))
         messageBox.send_keys(Keys.RETURN)
         sleep(delayAfterMessage)
     
-    def sendBulkMessage(self, df : pd.DataFrame, message : str = "Hello from WhatsApp Bot!", column = 1, delayAfterMessage : int = 1):
+    def sendBulkMessage(self, df : pd.DataFrame, message : str = "Hello from WhatsApp Bot!", column = 1, delayAfterMessage : int = 4):
         numbers = df.iloc[:, column].tolist()
         
         for i in range(len(numbers)):
@@ -61,11 +61,11 @@ if __name__ == "__main__":
     parser.add_argument("file", help="Path to Excel file containing numbers to send message to")
     parser.add_argument("-c", "--column", help="Column name or number where numbers are located", default=1)
     parser.add_argument("message", nargs='?', help="String or Text file containing message to send", default="Hello from WhatsApp Bot!")
-    parser.add_argument("-d", "--delay", help="Time (in seconds) to wait after sending the message. Default = 3", default=3)
+    parser.add_argument("-d", "--delay", help="Time (in seconds) to wait after sending the message. Default = 4", default=4, type=int)
     args = parser.parse_args()
     
     bot = WhatsAppBot()
     
     df = pd.read_excel(args.file, dtype=str)
     
-    bot.sendBulkMessage(df, args.message, args.column, args.delay)
+    bot.sendBulkMessage(df=df, message=args.message, column=args.column, delayAfterMessage=args.delay)
