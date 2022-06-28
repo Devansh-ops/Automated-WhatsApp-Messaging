@@ -175,7 +175,7 @@ Project Link: [https://github.com/Devansh-ops/Whatsapp-Message](https://github.c
 [issues-shield]: https://img.shields.io/github/issues/Devansh-ops/Whatsapp-Message.svg?style=for-the-badge
 [issues-url]: https://github.com/Devansh-ops/Whatsapp-Message/issues
 [license-shield]: https://img.shields.io/github/license/Devansh-ops/Whatsapp-Message.svg?style=for-the-badge
-[license-url]: https://github.com/Devansh-ops/Whatsapp-Message/blob/main/LICENSE.txt
+[license-url]: https://github.com/Devansh-ops/Whatsapp-Message/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/devansh-sehgal/
 [product-screenshot]: images/screenshot.png
