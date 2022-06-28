@@ -13,17 +13,27 @@ import openpyxl
 import pandas as pd
 import atexit
 
+import pyqrcode
+
+LATEST_USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
 #PATH_TO_BRAVE_BROWSER = "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"
 class WhatsAppBot:
-    def __init__(self):
+    def __init__(self, headless : bool = True):
         # constants
         self.DEFAULT_EXT="91"
         self.SCREENSHOT_FOLDER = "screenshots"
-        
+        self.headless = headless
         options = webdriver.ChromeOptions()
         #options.binary_location = PATH_TO_BRAVE_BROWSER
+        if self.headless:
+            options.headless = True
+            options.add_argument("--disable-gpu")
         options.add_argument("--no-sandbox")
-        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+        options.add_argument("--start-maximized")
+        options.add_argument("--user-agent={}".format(LATEST_USER_AGENT))
+        options.add_experimental_option('excludeSwitches', ['enable-logging'])
+        
+        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
         # fluent wait
         self.wait = WebDriverWait(self.driver, timeout=30, poll_frequency=1, ignored_exceptions=[ElementNotVisibleException])
@@ -39,11 +49,37 @@ class WhatsAppBot:
         return phone_number
         
     # send message to number
-    def sendMessage(self, number : str, message : str, delayAfterMessage : int = 3):
+    def sendMessage(self, number : str, message : str, delayAfterMessage : int = 3, qr : bool = False):
         message = quote(message)
         number = self.format_number(number)
         url = "https://web.whatsapp.com/send?phone=" + number + "&text=" + message
         self.driver.get(url)
+        
+        if qr and self.headless:
+            try:
+                icon = self.wait.until(EC.element_to_be_clickable((By.XPATH, '//div[@class="b77wc"]')))
+                QR = self.wait.until(EC.element_to_be_clickable((By.XPATH, '//div[@class="_2UwZ_"]')))
+                qr_info = QR.get_attribute("data-ref")
+                
+                url = pyqrcode.create(qr_info)
+                print(url.terminal(module_color="black", background="white"))
+                inp = input("Press enter after scanning qr code")
+                
+            except:    
+                t = str(time())
+                error_string = "QR Failed"
+                print(error_string)
+                
+                with open("error.log", "a") as f:
+                    f.write("\n{} : {}".format(t, error_string))
+                    f.close()
+                
+                if (not os.path.exists(self.SCREENSHOT_FOLDER)):
+                    os.makedirs(self.SCREENSHOT_FOLDER)
+                self.driver.save_screenshot(os.path.join(self.SCREENSHOT_FOLDER, "{}.png".format(t)))
+                exit()
+            
+        
         try:
             messageBox = self.wait.until(EC.element_to_be_clickable((By.XPATH, '//div[@title="Type a message"]')))
             messageBox.send_keys(Keys.RETURN)
@@ -64,7 +100,9 @@ class WhatsAppBot:
     def sendBulkMessage(self, df : pd.DataFrame, message : str = "Hello from WhatsApp Bot!", column = 1, delayAfterMessage : int = 4):
         numbers = df.iloc[:, column].tolist()
         
-        for i in range(len(numbers)):
+        self.sendMessage(numbers[0], message, delayAfterMessage, True)
+        
+        for i in range(1, len(numbers)):
             self.sendMessage(numbers[i], message, delayAfterMessage)
     
     # change default phone extention
@@ -89,9 +127,10 @@ if __name__ == "__main__":
     parser.add_argument("-s", "--string", help="Treat message as string input", action='store_true')
     parser.add_argument("-e", "--extension", help="Change default phone extention. Default is Indian: 91")
     parser.add_argument("--screenshot", help="Defines error screenshot folder")
+    parser.add_argument("-z", "--head", help="Runs without headless mode", action="store_false", default=True)
     args = parser.parse_args()
     
-    bot = WhatsAppBot()
+    bot = WhatsAppBot(args.head)
     
     if (args.string):
         message = args.message
