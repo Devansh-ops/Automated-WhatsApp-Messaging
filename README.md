@@ -9,20 +9,20 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/Devansh-ops/Whatsapp-Message/">
+  <!-- <a href="https://github.com/Devansh-ops/Whatsapp-Message/">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+  </a> -->
 
   <h3 align="center">WhatsApp Bulk Messenger</h3>
 
   <p align="center">
     Python Script to send bulk whatsapp message via chrome!
+    <!-- <br />
+    <a href="https://github.com/Devansh-ops/Whatsapp-Message"><strong>Explore the docs »</strong></a> -->
     <br />
-    <a href="https://github.com/Devansh-ops/Whatsapp-Message"><strong>Explore the docs »</strong></a>
     <br />
-    <br />
-    <a href="https://github.com/Devansh-ops/Whatsapp-Message">View Demo</a>
-    ·
+    <!-- <a href="https://github.com/Devansh-ops/Whatsapp-Message">View Demo</a>
+    · -->
     <a href="https://github.com/Devansh-ops/Whatsapp-Message/issues">Report Bug</a>
     ·
     <a href="https://github.com/Devansh-ops/Whatsapp-Message/issues">Request Feature</a>
@@ -45,8 +45,8 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
+    <li><a href="#features">Features</a></li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -56,7 +56,11 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+The project was first built out of neccesity while sending messages to hundreds of people for an online event conducted by [Sigma Xi VIT](https://github.com/SIGMA-XI-VIT)
+Later, it was updated to run in automatically and headlessly, so we could use our time more wisely.
+
+If you find this script useful, please leave a ⭐
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -72,10 +76,18 @@
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
+Make sure to add both to the PATH
+* [Python 3](https://www.python.org/downloads/) 
+* [Git](https://git-scm.com/downloads) (optional) 
 
-* [Install python](https://www.python.org/downloads/) and make sure to add it to the PATH
+To get the repository, either download the ZIP folder from Code and extract it, or clone the repository via git using
 
+`git clone https://github.com/Devansh-ops/Whatsapp-Message.git`
 ### Installation
+
+Move into the folder
+
+`cd Whatsapp-Message`
 
 To install dependencies type:
 
@@ -93,10 +105,15 @@ To install dependencies type:
 
 <!-- USAGE EXAMPLES -->
 ## Usage
+<!-- 
+_For more examples, please refer to the [Documentation](https://example.com)_ -->
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+### Basic Usage
+`python script.py <EXCEL SHEET> <TEXT FILE>`
 
-Type `python3 script.py --help` for usage details
+You might want to specify the column containing the numbers via the `-c` flag ( 0-based indexing )
+
+For more usage details, Type `python script.py --help`
 
 ```
 usage: script.py [-h] [-c COLUMN] [-d DELAY] [-s] [-e EXTENSION] [--screenshot SCREENSHOT] [-z] file [message]
@@ -129,7 +146,9 @@ If you have a suggestion that would make this better, please fork the repo and c
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+2. Clone it locally (`git clone https://github.com/<YOUR-USERNAME>/Whatsapp-Message.git`)
+2. <a href="#installation"> Install </a> the dependencies
+4. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
@@ -178,4 +197,4 @@ Project Link: [https://github.com/Devansh-ops/Whatsapp-Message](https://github.c
 [license-url]: https://github.com/Devansh-ops/Whatsapp-Message/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/devansh-sehgal/
-[product-screenshot]: images/screenshot.png
+<!-- [product-screenshot]: images/screenshot.png -->
