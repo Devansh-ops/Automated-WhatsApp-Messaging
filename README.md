@@ -9,23 +9,23 @@
 
 <br />
 <div align="center">
-  <!-- <a href="https://github.com/Devansh-ops/Whatsapp-Message/">
+  <!-- <a href="https://github.com/Devansh-ops/Automated-WhatsApp-Messaging/">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a> -->
 
-  <h3 align="center">WhatsApp Bulk Messenger</h3>
+  <h3 align="center">Automated WhatsApp Messaging</h3>
 
   <p align="center">
     Python Script to send bulk whatsapp message via chrome!
     <!-- <br />
-    <a href="https://github.com/Devansh-ops/Whatsapp-Message"><strong>Explore the docs »</strong></a> -->
+    <a href="https://github.com/Devansh-ops/Automated-WhatsApp-Messaging"><strong>Explore the docs »</strong></a> -->
     <br />
     <br />
-    <!-- <a href="https://github.com/Devansh-ops/Whatsapp-Message">View Demo</a>
+    <!-- <a href="https://github.com/Devansh-ops/Automated-WhatsApp-Messaging">View Demo</a>
     · -->
-    <a href="https://github.com/Devansh-ops/Whatsapp-Message/issues">Report Bug</a>
+    <a href="https://github.com/Devansh-ops/Automated-WhatsApp-Messaging/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Devansh-ops/Whatsapp-Message/issues">Request Feature</a>
+    <a href="https://github.com/Devansh-ops/Automated-WhatsApp-Messaging/issues">Request Feature</a>
   </p>
 </div>
 
@@ -82,12 +82,12 @@ Make sure to add both to the PATH
 
 To get the repository, either download the ZIP folder from Code and extract it, or clone the repository via git using
 
-`git clone https://github.com/Devansh-ops/Whatsapp-Message.git`
+`git clone https://github.com/Devansh-ops/Automated-WhatsApp-Messaging.git`
 ### Installation
 
 Move into the folder
 
-`cd Whatsapp-Message`
+`cd Automated-WhatsApp-Messaging`
 
 To install dependencies type:
 
@@ -146,7 +146,7 @@ If you have a suggestion that would make this better, please fork the repo and c
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
-2. Clone it locally (`git clone https://github.com/<YOUR-USERNAME>/Whatsapp-Message.git`)
+2. Clone it locally (`git clone https://github.com/<YOUR-USERNAME>/Automated-WhatsApp-Messaging.git`)
 2. <a href="#installation"> Install </a> the dependencies
 4. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
@@ -169,7 +169,7 @@ Distributed under the BSD 3-Clause License. See `LICENSE.txt` for more informati
 
 Devansh Sehgal - [@covfebeforecode](https://twitter.com/covfebeforecode) - devanshsehgal@gmail.com
 
-Project Link: [https://github.com/Devansh-ops/Whatsapp-Message](https://github.com/Devansh-ops/Whatsapp-Message)
+Project Link: [https://github.com/Devansh-ops/Automated-WhatsApp-Messaging](https://github.com/Devansh-ops/Automated-WhatsApp-Messaging)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -185,16 +185,16 @@ Project Link: [https://github.com/Devansh-ops/Whatsapp-Message](https://github.c
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-[contributors-shield]: https://img.shields.io/github/contributors/Devansh-ops/Whatsapp-Message.svg?style=for-the-badge
-[contributors-url]: https://github.com/Devansh-ops/Whatsapp-Message/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Devansh-ops/Whatsapp-Message.svg?style=for-the-badge
-[forks-url]: https://github.com/Devansh-ops/Whatsapp-Message/network/members
-[stars-shield]: https://img.shields.io/github/stars/Devansh-ops/Whatsapp-Message.svg?style=for-the-badge
-[stars-url]: https://github.com/Devansh-ops/Whatsapp-Message/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Devansh-ops/Whatsapp-Message.svg?style=for-the-badge
-[issues-url]: https://github.com/Devansh-ops/Whatsapp-Message/issues
-[license-shield]: https://img.shields.io/github/license/Devansh-ops/Whatsapp-Message.svg?style=for-the-badge
-[license-url]: https://github.com/Devansh-ops/Whatsapp-Message/blob/main/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/Devansh-ops/Automated-WhatsApp-Messaging.svg?style=for-the-badge
+[contributors-url]: https://github.com/Devansh-ops/Automated-WhatsApp-Messaging/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Devansh-ops/Automated-WhatsApp-Messaging.svg?style=for-the-badge
+[forks-url]: https://github.com/Devansh-ops/Automated-WhatsApp-Messaging/network/members
+[stars-shield]: https://img.shields.io/github/stars/Devansh-ops/Automated-WhatsApp-Messaging.svg?style=for-the-badge
+[stars-url]: https://github.com/Devansh-ops/Automated-WhatsApp-Messaging/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Devansh-ops/Automated-WhatsApp-Messaging.svg?style=for-the-badge
+[issues-url]: https://github.com/Devansh-ops/Automated-WhatsApp-Messaging/issues
+[license-shield]: https://img.shields.io/github/license/Devansh-ops/Automated-WhatsApp-Messaging.svg?style=for-the-badge
+[license-url]: https://github.com/Devansh-ops/Automated-WhatsApp-Messaging/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/devansh-sehgal/
 <!-- [product-screenshot]: images/screenshot.png -->
